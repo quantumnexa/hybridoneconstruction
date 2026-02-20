@@ -5,8 +5,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from "react";
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 
 const portfolioItems = [
     {
@@ -165,17 +165,12 @@ const Portfolio = () => {
                 </div>
             </div>
             <div id="large-slider">
-                {isOpen && (
-                    <Lightbox
-                        mainSrc={portfolioItems[photoIndex].imgSrc}
-                        nextSrc={portfolioItems[(photoIndex + 1) % portfolioItems.length].imgSrc}
-                        prevSrc={portfolioItems[(photoIndex + portfolioItems.length - 1) % portfolioItems.length].imgSrc}
-                        onCloseRequest={handleClose}
-                        onMovePrevRequest={() => setPhotoIndex((photoIndex + portfolioItems.length - 1) % portfolioItems.length)}
-                        onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % portfolioItems.length)}
-                        enableZoom={false}
-                    />
-                )}
+                <Lightbox
+                    open={isOpen}
+                    close={handleClose}
+                    index={photoIndex}
+                    slides={portfolioItems.map((item) => ({ src: item.imgSrc }))}
+                />
             </div>
         </div>
     );

@@ -9,7 +9,7 @@ import Portfolio from "~/sections/Home-2/Portfolio";
 import Pricing from "~/sections/Home-2/Pricing";
 import Process from "~/sections/Home-2/Process";
 import Service from "~/sections/Home-2/Service";
-import TestimonialThree from "~/sections/Home-3/TestimonialThree";
+import TestimonialThree from "~/sections/Common/Testimonial/TestimonialThree";
 import Video from "~/sections/Home-2/Video";
 import FooterFour from "~/sections/Common/Footer/FooterFour";
 import Scroll from "~/sections/Common/Scroll";

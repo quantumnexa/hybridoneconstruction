@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 
 const images = [
     "/main-assets/img/project/project2_1.png",
@@ -74,20 +74,12 @@ const Project = () => {
                     </ul>
                 </div>
             </div>
-            {photoIndex >= 0 && (
-                <Lightbox
-                    mainSrc={images[photoIndex]}
-                    nextSrc={images[(photoIndex + 1) % images.length]}
-                    prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-                    onCloseRequest={() => setPhotoIndex(-1)}
-                    onMovePrevRequest={() =>
-                        setPhotoIndex((photoIndex + images.length - 1) % images.length)
-                    }
-                    onMoveNextRequest={() =>
-                        setPhotoIndex((photoIndex + 1) % images.length)
-                    }
-                />
-            )}
+            <Lightbox
+                open={photoIndex >= 0}
+                close={() => setPhotoIndex(-1)}
+                index={photoIndex >= 0 ? photoIndex : 0}
+                slides={images.map((src) => ({ src }))}
+            />
         </section>
     );
 };

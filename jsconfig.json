@@ -4,6 +4,7 @@
     "paths": {
       "~/*": ["./src/*"],
       "~/components/*": ["./src/sections/*"],
+      "~/sections/*": ["./src/sections/*"],
       "~/assets/*": ["./src/assets/*"],
       "~/public/*": ["public/*"]
     }

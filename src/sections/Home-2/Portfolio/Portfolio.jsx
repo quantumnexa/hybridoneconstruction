@@ -2,8 +2,8 @@
 import Link from "next/link";
 import Slider from "react-slick";
 import React, { useEffect, useState } from 'react';
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 
 const Portfolio = () => {
     const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -103,20 +103,12 @@ const Portfolio = () => {
                 </div>
             </div>
             <div className="extra-style">
-                {lightboxOpen && (
-                    <Lightbox
-                        mainSrc={images[lightboxIndex].imgSrc}
-                        nextSrc={images[(lightboxIndex + 1) % images.length].imgSrc}
-                        prevSrc={images[(lightboxIndex + images.length - 1) % images.length].imgSrc}
-                        onCloseRequest={() => setLightboxOpen(false)}
-                        onMovePrevRequest={() =>
-                            setLightboxIndex((lightboxIndex + images.length - 1) % images.length)
-                        }
-                        onMoveNextRequest={() =>
-                            setLightboxIndex((lightboxIndex + 1) % images.length)
-                        }
-                    />
-                )}
+                <Lightbox
+                    open={lightboxOpen}
+                    close={() => setLightboxOpen(false)}
+                    index={lightboxIndex}
+                    slides={images.map((img) => ({ src: img.imgSrc }))}
+                />
             </div>
         </div>
     );
