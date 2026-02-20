@@ -8,7 +8,7 @@ const Video = () => {
         setPopup(true);
         const iframe = document.getElementById("youtube-video");
         if (iframe) {
-            iframe.src = "https://www.youtube.com/embed/Mp8IXI1kzvQ?si=UQVMsmBriHPfD6Vf";
+            iframe.src = "https://youtu.be/ectlUlDmqTU?si=YdBZGJ7T0kHp23L3";
         }
         setIsActive(true);
         document.body.style.overflow = 'hidden';
